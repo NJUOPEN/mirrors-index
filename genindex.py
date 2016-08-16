@@ -6,8 +6,8 @@ import logging
 import argparse
 from jinja2 import Environment, FileSystemLoader
 import gencontent
-import genisolist
-import genservernews
+#import genisolist
+#import genservernews
 
 def main():
     logger = logging.getLogger('mirrors-genindex')
@@ -50,9 +50,10 @@ def main():
     logger.debug('begin parsing template...')
     parsed_template = template.render(
             repolist=gencontent.genRepoList(),
-            revproxy=gencontent.getOthers(),
-            isoinfo=genisolist.getImageList(),
-            newslist=genservernews.getServerNews(logger))
+            #revproxy=gencontent.getOthers(),
+            #isoinfo=genisolist.getImageList(),
+            #newslist=genservernews.getServerNews(logger)
+    )
 
     logger.info('begin file writing...')
     with open(OUTFILE, 'w') as fout:
